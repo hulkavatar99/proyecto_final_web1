@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+ 
+
+<head>
+
+   <title>Inicio</title>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+</head>
+<body>
+    <form name="nameform">
+        <h1><p>LLENAR LOS DATOS SOLICITADOS</p></h1>
+        <h3><p>PERSONA:</p></h3>
+        <input type="text" id="persona">
+        <h3><p>DIRECCION:</p></h3>
+        <input type="text" id="direccion">
+        <h3><p>TELEFONO:</p></h3>
+        <input type="text" id="telefono">
+    </form>
+    <form name="pooform" action="progrmacionorientadaobjetos.html">
+        <p></p>
+        <input type="button" value="ENTER" id="po" onclick="pooFunction()"/>
+    </form>
+
+</body>
+
+<script language="javaScript">
+
+    function pooFunction(){
+        let personalet= document.nameform.persona.value;
+        let direccionlet= document.nameform.direccion.value;
+        let telefonolet= document.nameform.telefono.value;
+        var sinNumeros=/^[a-zA-Z]+$/;
+        var sinletras=/^([0-9])*$/;
+        if(sinNumeros.test(personalet) && sinNumeros.test(direccionlet) && sinletras.test(telefonolet)){
+            localStorage.setItem("persona",personalet)
+            localStorage.setItem("direccion",direccionlet)
+            localStorage.setItem("telefono",telefonolet)
+            document.pooform.submit();
+        }else{
+            alert("Asegurese de completar todos los datos en los campos "+personalet+" "+direccionlet+" "+telefonolet)
+        }
+    }
+
+
+
+</script>
+</html>
